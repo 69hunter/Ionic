@@ -46,6 +46,8 @@ export class CommentPage {
       'date': new Date().toISOString(),
     };
 
+    // let newComment: Comment = this.comment.value;
+
     this.viewCtrl.dismiss(pushComments);
   }
 
