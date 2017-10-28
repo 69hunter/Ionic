@@ -26,6 +26,9 @@ export class FavoriteProvider {
               private storage: Storage,
               private localNotifications: LocalNotifications) {
     console.log('Hello FavoriteProvider Provider');
+    // this.favorites = [];
+    //
+    // this.storage.set('favorites', this.getFavorites());
     storage.get('favorites').then(favorites => {
       if (favorites) {
         console.log(favorites);
@@ -57,6 +60,7 @@ export class FavoriteProvider {
   }
 
   getFavorites(): Observable<Dish[]> {
+    //this.storage.get('favorites');
     return this.dishservice.getDishes()
       .map(dishes => dishes.filter(dish => this.favorites.some(el => el === dish.id)));
   }
